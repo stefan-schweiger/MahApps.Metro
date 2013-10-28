@@ -13,14 +13,11 @@
                     <ControlTemplate.Resources>
                         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
                     </ControlTemplate.Resources>
-                    <Grid Background="{TemplateBinding Background}">
+                    <Grid>
                         <AdornerDecorator>
                             <Controls:MetroContentControl IsTabStop="False"
                                                           FocusVisualStyle="{x:Null}">
-                                <Grid>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="{DynamicResource WhiteColor}" />
-                                    </Grid.Background>
+                                <Grid Background="{DynamicResource WhiteBrush}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
@@ -42,7 +39,7 @@
                                                HorizontalContentAlignment="Center"
                                                VerticalAlignment="Top"
                                                Content="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}}"
-                                               FontSize="14" />
+                                               FontSize="{DynamicResource WindowTitleFontSize}" />
 
                                         <Grid VerticalAlignment="Top"
                                               HorizontalAlignment="Right">
@@ -63,7 +60,7 @@
                                         </Grid>
 
                                     </Grid>
-                                    
+
                                     <ContentPresenter Grid.Row="1" />
 
                                     <ItemsControl Grid.Row="0"

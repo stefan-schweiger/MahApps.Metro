@@ -12,21 +12,14 @@
                       WindowStartupLocation="CenterScreen"
                       BorderThickness="1"
                       BorderBrush="{DynamicResource AccentColorBrush}"
-                      InheritAccentColorsAndTheme="True"
                       mc:Ignorable="d"
                       x:Name="flyoutsDemo">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.Resources;component/Icons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -40,9 +33,8 @@
 
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Header="Settings" Position="Right">
-                <Grid Margin="10"
-                      Width="250">
+            <Controls:Flyout x:Name="settingsFlyout" Width="250" Header="Settings" Position="Right">
+                <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
@@ -75,10 +67,9 @@
                 </Grid>
             </Controls:Flyout>
 
-            <Controls:Flyout Header="New Goodness" Position="Right">
+            <Controls:Flyout Header="New Goodness" Position="Right" Width="{Binding ElementName=settingsFlyout, Path=ActualWidth, Mode=OneWay}">
                 <StackPanel Orientation="Vertical"
-                            Margin="10"
-                            Width="250">
+                            Margin="10">
                     <Button Content="create" />
                     <Button Content="cancel" />
                 </StackPanel>
